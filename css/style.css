@@ -1,0 +1,96 @@
+*{ /*Estilos aplicados a cada elemento / ESTILOS GENERALES*/
+    margin: 0; /*Al comienzo ninguno debe tener margen o padding*/
+    padding: 0;
+    box-sizing: border-box; /*Cada elemento debe tener una caja*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*La fuente familiar en general*/
+}
+
+/*ESTILOS LOGO*/
+.logo{
+    max-width: 12rem; /*El maximo de cuanto deberia ocupar, se autoajusta el alto*/
+    margin-left: 5px; /*Dejar un margen para separarlo un poco de la margen del navegador*/
+}
+
+/*ESTILOS ETIQUETA HEADER*/
+header{
+    display: flex; /*Para que acomode los elementos uno al lado del otro*/
+    align-items: center; /*Alinear los elementos de manera vertical*/
+    justify-content: space-between; /*Para que queden separados, cada uno en un lado*/
+    padding: 2rem; /*Separamos un poco los elementos*/
+    background-color: #ececec;
+}
+
+/*ESTILOS ELEMENTOS DE LA LISTA*/
+.listaMenu{
+    list-style-type: none; /* Eliminamos los puntos que indican cada item, los puntos o cuadrados*/
+    display: flex; /*Hacemos que los elemntos queden alineados unos al lado de otros*/
+    gap: 1rem; /*Para separar los elementos*/
+}
+
+/*ESTILOS DE LOS ELEMENTOS DE LA LISTA, LOS ENLACES*/
+.listaMenu li a{
+    text-decoration: none; /*Para acabar con los estilos predeterminados de los enlaces en la lista*/
+    color: #1c1c1c; /*Color del texto*/
+    font-size: 30px; /*Tamaño de la fuente*/
+    margin-right: 12px; /*Separar cada enlace un poco entre ellos y el margen del navegador*/
+}
+
+/*ESTILOS AL BOTON HAMBURGUESA DE ABRIR Y CERRAR*/
+.abrirMenu, .cerrarMenu{
+    display: none; /*El boton debe desaparecer en un principio*/
+}
+
+/*Las medias quieries permite aplicar estilos a determinados tipos de dispositivos o tipos de pantalla*/
+/*Solo aplica cuando la pantalla es angosta*/
+@media screen and (max-width:500px){
+
+    /*ESTILOS AL BOTON HAMBURGUESA DE ABRIR Y CERRAR EN LA VERSION MOVIL*/
+    .abrirMenu, 
+    .cerrarMenu{
+        display: block; /*El boton debe aparecer*/
+        border: none;/*Eliminar los bordes*/
+        font-size: 2.5rem;/*Tamaño de la fuente*/
+        cursor: pointer;/*Un cursor para cuando pase por encima*/
+    }
+
+    .cerrarMenu{
+        background-color: transparent;/*Fondo transparente*/
+        color: #ececec; /*Color de la X*/
+    }
+
+    /*Estilos a la navegación*/
+    .menuPrincipal {
+        opacity: 0;
+        visibility: hidden;/*Visibiliad solo cuando aprima abrir*/
+        display: flex; /*Contenido o elemntos juntos*/
+        flex-direction: column; /*Items formando una columna*/
+        align-items: end; /*Alinear al final y a la derecha*/
+        gap: 1.5rem; /*Separacion entre elementos*/
+        position: absolute; /*Una posición absoluta para que no se mueva*/
+        top: 0; /*Elementos totalmente arriba*/
+        right: 0; /*Elementos totalmente a la derecha*/
+        bottom: 0; /*Elementos totalmente abajo*/
+        background-color: #1c1c1c; /*Color de fondo*/
+        padding: 2rem; /*Separación entre elementos*/
+        box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.35); /*Agregar una sombra de forma pareja y de forma transparente*/
+        /*                unidad de porcentaje relativo */
+    }
+
+    /*Estilos para que aparezca el menu principal*/
+    .menuPrincipal.visible {
+        opacity: 1;/*Cambiamos la opacidad para que aparezca*/
+        visibility: visible; /*Cambiamos la visibilidad*/
+    }
+
+
+    /*Estilos a la lista de navegación*/
+    .listaMenu{
+        flex-direction: column; /*Acomoda los items de manera vertical pero debe estar de manera flex box*/
+        align-items: end; /*Alinear los items al final y a la derecha*/
+    }
+
+    /*Estilos a los enlaces de navegación*/
+    .listaMenu li a{
+        color: #ececec; /*Color de fuente*/
+    }
+}
